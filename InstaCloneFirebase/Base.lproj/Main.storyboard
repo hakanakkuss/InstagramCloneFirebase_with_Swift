@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstaCloneFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdg-lE-MIL">
@@ -23,6 +23,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
                                 <connections>
                                     <action selector="signInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dN-id-V7g"/>
+                                    <segue destination="U6K-n8-al0" kind="presentation" identifier="toFeedVC" modalPresentationStyle="fullScreen" id="nJk-i6-wd4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7Z-xs-V4j">
@@ -32,7 +33,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WcC-sI-EOy"/>
-                                    <segue destination="YeR-Z1-l0f" kind="show" id="prP-rS-zYC"/>
+                                    <segue destination="U6K-n8-al0" kind="presentation" identifier="toFeedVC" modalPresentationStyle="fullScreen" id="Kas-Vi-qwo"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jA2-yl-CPl">
@@ -89,6 +90,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="f.circle.fill" catalog="system" id="vtD-Pt-OGV"/>
+                    <navigationItem key="navigationItem" id="nZB-SI-iH4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1Q-ep-rnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,19 +103,57 @@
                     <view key="view" contentMode="scaleToFill" id="O8l-Jj-dwK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fD2-mX-fL1">
+                                <rect key="frame" x="94" y="106" width="250" height="257"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="259.5" id="H6p-Y7-QXl"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment Line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cAX-b9-HyP">
+                                <rect key="frame" x="106" y="459" width="227" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhb-pm-FNy">
+                                <rect key="frame" x="127" y="583" width="161" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="gWA-pz-0PS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadImageClicked:" destination="Oio-1w-qNU" eventType="touchUpInside" id="Z98-CI-0Ug"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WRh-Pw-Pqv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fD2-mX-fL1" firstAttribute="leading" secondItem="cAX-b9-HyP" secondAttribute="leading" constant="-12" id="2rP-Bu-wE3"/>
+                            <constraint firstItem="zhb-pm-FNy" firstAttribute="leading" secondItem="WRh-Pw-Pqv" secondAttribute="leading" constant="127" id="41c-k8-tDb"/>
+                            <constraint firstItem="cAX-b9-HyP" firstAttribute="centerX" secondItem="fD2-mX-fL1" secondAttribute="centerX" id="5LP-ti-ASK"/>
+                            <constraint firstItem="WRh-Pw-Pqv" firstAttribute="trailing" secondItem="fD2-mX-fL1" secondAttribute="trailing" constant="70" id="9x8-5e-Jvs"/>
+                            <constraint firstItem="fD2-mX-fL1" firstAttribute="top" secondItem="WRh-Pw-Pqv" secondAttribute="top" constant="61" id="FQF-iG-srT"/>
+                            <constraint firstItem="zhb-pm-FNy" firstAttribute="top" secondItem="cAX-b9-HyP" secondAttribute="bottom" constant="90" id="OcG-Tw-PHM"/>
+                            <constraint firstItem="cAX-b9-HyP" firstAttribute="top" secondItem="fD2-mX-fL1" secondAttribute="bottom" constant="94.5" id="VI2-Vb-yto"/>
+                            <constraint firstItem="fD2-mX-fL1" firstAttribute="leading" secondItem="WRh-Pw-Pqv" secondAttribute="leading" constant="94" id="emB-NU-zYU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="u.circle.fill" catalog="system" id="bje-lB-ajB"/>
+                    <connections>
+                        <outlet property="imageView" destination="fD2-mX-fL1" id="uF7-gq-Pj2"/>
+                        <outlet property="textLabel" destination="cAX-b9-HyP" id="NsL-oy-RLi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7w-Nv-8zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128" y="-345"/>
+            <point key="canvasLocation" x="2127.536231884058" y="-345.53571428571428"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SRk-qm-vDJ">
             <objects>
-                <tabBarController id="H2s-ce-fad" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="H2s-ce-fad" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4hB-8U-3ch"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r4m-Kx-oNR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -145,6 +185,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
                                 <connections>
                                     <action selector="LogOutClicked:" destination="YeR-Z1-l0f" eventType="touchUpInside" id="eu1-WZ-e9C"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toViewController" id="UcF-a2-dj7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -160,10 +201,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lVe-pw-3lg"/>
+        <segue reference="RZc-vX-GsV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="f.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="s.circle.fill" catalog="system" width="128" height="121"/>
         <image name="u.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
