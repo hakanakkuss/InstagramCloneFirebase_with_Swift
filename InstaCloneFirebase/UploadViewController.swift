@@ -1,11 +1,5 @@
-//
-//  UploadViewController.swift
-//  InstaCloneFirebase
-//
-//  Created by Macbook Pro on 28.07.2022.
-//
-
 import UIKit
+import FirebaseStorage
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
@@ -33,9 +27,43 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate & 
         imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func makeAlert(alertInput: String, alertMessage: String) {
+        let alert = UIAlertController(title: alertInput, message: alertMessage, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
   
     
     @IBAction func uploadImageClicked(_ sender: Any) {
+        
+        let storage = Storage.storage()
+        let storageReferance = storage.reference()
+        
+        let mediaFolder = storageReferance.child("media")
+        
+        if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+            let uuid = UUID().uuidString
+            let imageReferance = mediaFolder.child("\(uuid).jpg")
+            imageReferance.putData(data, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    self.makeAlert(alertInput: "Error!", alertMessage: error?.localizedDescription ?? "Error!")
+                }
+                else {
+                    imageReferance.downloadURL { (url, error) in
+                        if error == nil {
+                            let imageUrl = url?.absoluteString
+                            print(imageUrl)
+                        }
+                        
+                    }
+                }
+            }
+               
+            }
+                
+     
         
         
     }
