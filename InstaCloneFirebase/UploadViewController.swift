@@ -1,5 +1,7 @@
 import UIKit
 import FirebaseStorage
+import FirebaseFirestore
+import Firebase
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
@@ -14,6 +16,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate & 
         
         let imageRecognizer = UITapGestureRecognizer(target: self, action: #selector(chosenImage))
         imageView.addGestureRecognizer(imageRecognizer)
+       
     
     }
     @objc func chosenImage(){
@@ -54,19 +57,29 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate & 
                     imageReferance.downloadURL { (url, error) in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-                            print(imageUrl)
+                      
+                            
+                            let firestoreDatabase = Firestore.firestore()
+                            var firestoreReference : DocumentReference? = nil
+                            
+                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : self.textLabel.text!, "date" : "date", "likes" : 0  ] as [String : Any]
+                            
+                            firestoreReference = firestoreDatabase.collection("Posts").addDocument(data: firestorePost, completion: { error in
+                                if error != nil {
+                                    self.makeAlert(alertInput: "Error!", alertMessage: error?.localizedDescription ?? "Error!")
+                                }
+                            })
+
+                                if error != nil {
+                                    self.makeAlert(alertInput: "Error!", alertMessage: error?.localizedDescription ?? "Error")
+                                }
+                            }
                         }
-                        
                     }
                 }
             }
-               
-            }
-                
-     
-        
-        
+        }
     }
     
 
-}
+
