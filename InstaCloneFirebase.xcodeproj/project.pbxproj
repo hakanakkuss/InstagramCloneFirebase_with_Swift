@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		525AF5DE2893F9EE00E52D1C /* selectImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 525AF5DD2893F9EE00E52D1C /* selectImg.png */; };
+		525AF5E02893FF6300E52D1C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AF5DF2893FF6300E52D1C /* FeedCell.swift */; };
 		5261C8EB2891714600895FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8EA2891714600895FC0 /* AppDelegate.swift */; };
 		5261C8ED2891714600895FC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8EC2891714600895FC0 /* SceneDelegate.swift */; };
 		5261C8EF2891714600895FC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8EE2891714600895FC0 /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		525AF5DD2893F9EE00E52D1C /* selectImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectImg.png; sourceTree = "<group>"; };
+		525AF5DF2893FF6300E52D1C /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		5261C8E72891714600895FC0 /* InstaCloneFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaCloneFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5261C8EA2891714600895FC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5261C8EC2891714600895FC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,8 +137,10 @@
 				5261C931289280A300895FC0 /* FeedViewController.swift */,
 				5261C933289280AF00895FC0 /* UploadViewController.swift */,
 				5261C935289280BE00895FC0 /* SettingsViewController.swift */,
+				525AF5DF2893FF6300E52D1C /* FeedCell.swift */,
 				5261C8F02891714600895FC0 /* Main.storyboard */,
 				5261C8F32891714800895FC0 /* Assets.xcassets */,
+				525AF5DD2893F9EE00E52D1C /* selectImg.png */,
 				5261C8F52891714800895FC0 /* LaunchScreen.storyboard */,
 				5261C8F82891714800895FC0 /* Info.plist */,
 				5261C91A289171A400895FC0 /* GoogleService-Info.plist */,
@@ -280,6 +286,7 @@
 			files = (
 				5261C8F72891714800895FC0 /* LaunchScreen.storyboard in Resources */,
 				5261C91B289171A400895FC0 /* GoogleService-Info.plist in Resources */,
+				525AF5DE2893F9EE00E52D1C /* selectImg.png in Resources */,
 				5261C8F42891714800895FC0 /* Assets.xcassets in Resources */,
 				5261C8F22891714600895FC0 /* Main.storyboard in Resources */,
 			);
@@ -306,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525AF5E02893FF6300E52D1C /* FeedCell.swift in Sources */,
 				5261C8EF2891714600895FC0 /* ViewController.swift in Sources */,
 				5261C934289280AF00895FC0 /* UploadViewController.swift in Sources */,
 				5261C8EB2891714600895FC0 /* AppDelegate.swift in Sources */,

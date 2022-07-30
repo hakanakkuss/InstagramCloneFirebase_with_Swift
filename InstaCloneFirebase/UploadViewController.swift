@@ -62,7 +62,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate & 
                             let firestoreDatabase = Firestore.firestore()
                             var firestoreReference : DocumentReference? = nil
                             
-                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : self.textLabel.text!, "date" : "date", "likes" : 0  ] as [String : Any]
+                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : self.textLabel.text!, "date" : FieldValue.serverTimestamp(), "likes" : 0  ] as [String : Any]
                             
                             firestoreReference = firestoreDatabase.collection("Posts").addDocument(data: firestorePost, completion: { error in
                                 if error != nil {
@@ -72,6 +72,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate & 
 
                                 if error != nil {
                                     self.makeAlert(alertInput: "Error!", alertMessage: error?.localizedDescription ?? "Error")
+                                }else {
+                                    self.imageView.image = UIImage(named: "selectImg.png")
+                                    self.textLabel.text = ""
+                                    self.tabBarController?.selectedIndex = 1
                                 }
                             }
                         }
