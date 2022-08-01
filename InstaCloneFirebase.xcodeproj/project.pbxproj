@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		525AF5DE2893F9EE00E52D1C /* selectImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 525AF5DD2893F9EE00E52D1C /* selectImg.png */; };
 		525AF5E02893FF6300E52D1C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525AF5DF2893FF6300E52D1C /* FeedCell.swift */; };
+		525AF5E32895AD8400E52D1C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 525AF5E22895AD8400E52D1C /* SDWebImage */; };
+		525AF5E52895AD8400E52D1C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 525AF5E42895AD8400E52D1C /* SDWebImageMapKit */; };
 		5261C8EB2891714600895FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8EA2891714600895FC0 /* AppDelegate.swift */; };
 		5261C8ED2891714600895FC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8EC2891714600895FC0 /* SceneDelegate.swift */; };
 		5261C8EF2891714600895FC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8EE2891714600895FC0 /* ViewController.swift */; };
@@ -86,7 +88,9 @@
 				5261C9202891748000895FC0 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				5261C9262891748000895FC0 /* FirebaseAppCheck in Frameworks */,
 				5261C92C2891748000895FC0 /* FirebaseFirestore in Frameworks */,
+				525AF5E32895AD8400E52D1C /* SDWebImage in Frameworks */,
 				5261C92A2891748000895FC0 /* FirebaseDatabase in Frameworks */,
+				525AF5E52895AD8400E52D1C /* SDWebImageMapKit in Frameworks */,
 				5261C9242891748000895FC0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +196,8 @@
 				5261C92B2891748000895FC0 /* FirebaseFirestore */,
 				5261C92D2891748000895FC0 /* FirebaseStorage */,
 				5261C92F2891748000895FC0 /* FirebaseStorageCombine-Community */,
+				525AF5E22895AD8400E52D1C /* SDWebImage */,
+				525AF5E42895AD8400E52D1C /* SDWebImageMapKit */,
 			);
 			productName = InstaCloneFirebase;
 			productReference = 5261C8E72891714600895FC0 /* InstaCloneFirebase.app */;
@@ -267,6 +273,7 @@
 			mainGroup = 5261C8DE2891714600895FC0;
 			packageReferences = (
 				5261C91C2891748000895FC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				525AF5E12895AD8300E52D1C /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 5261C8E82891714600895FC0 /* Products */;
 			projectDirPath = "";
@@ -657,6 +664,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		525AF5E12895AD8300E52D1C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		5261C91C2891748000895FC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -668,6 +683,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		525AF5E22895AD8400E52D1C /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 525AF5E12895AD8300E52D1C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		525AF5E42895AD8400E52D1C /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 525AF5E12895AD8300E52D1C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
 		5261C91D2891748000895FC0 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5261C91C2891748000895FC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
